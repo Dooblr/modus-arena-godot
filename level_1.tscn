@@ -30,30 +30,30 @@ sky = SubResource("Sky_8hgka")
 [node name="Level1" type="Node3D"]
 script = SubResource("GDScript_dpqlk")
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="floor" type="StaticBody3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+[node name="floor_mesh" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("PlaneMesh_8fxtl")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_hmmc5")
 
-[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+[node name="floor_collision" type="CollisionShape3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00524157, -0.25, -0.00676636)
 shape = SubResource("BoxShape3D_k4ymp")
 
-[node name="Player" parent="." instance=ExtResource("1_bmrpy")]
+[node name="player" parent="." instance=ExtResource("1_bmrpy")]
 
-[node name="Projectile" parent="." instance=ExtResource("2_3durm")]
+[node name="player_projectile" parent="." instance=ExtResource("2_3durm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 collision_layer = 2
 script = ExtResource("3_wyqaw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="sun_light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.722412, 0.691463, 0, -0.691463, 0.722412, 0, 8.51967, 10.5247)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bapma")
 
-[node name="StaticBody3D" parent="." instance=ExtResource("4_qc2vi")]
+[node name="wall" parent="." instance=ExtResource("4_qc2vi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51716, 10.0424, 0.50688, 0)
