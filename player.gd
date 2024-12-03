@@ -76,12 +76,14 @@ func _fire_projectile():
 	projectile.global_transform = global_transform
 	var forward_direction = -global_transform.basis.z
 	projectile.linear_velocity = forward_direction * player_projectile_speed
+	projectile.linear_damp = 0  # Disable drag to keep speed constant
+	projectile.gravity_scale = 0  # Disable gravity on the projectile
 	get_parent().add_child(projectile)
 	
 	# Add a timer to the projectile to despawn it after 3 seconds
 	var timer = Timer.new()
 	timer.wait_time = 3.0  # 3 seconds
-	timer.one_shot = true  # The timer should only fire once
+	timer.one_shot = true  # The timer should trigger only once
 	timer.timeout.connect(Callable(projectile, "queue_free"))  # When the timer times out, the projectile will despawn
 	projectile.add_child(timer)
 	timer.start()
