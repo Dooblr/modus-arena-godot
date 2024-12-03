@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://besq7bi7ojgve"]
+[gd_scene load_steps=12 format=3 uid="uid://besq7bi7ojgve"]
 
 [ext_resource type="PackedScene" uid="uid://bvlmuf5aibcvr" path="res://player.tscn" id="1_bmrpy"]
 [ext_resource type="PackedScene" uid="uid://cuym6nmgxpmil" path="res://player_projectile.tscn" id="2_3durm"]
 [ext_resource type="Script" path="res://player_projectile.gd" id="3_wyqaw"]
+[ext_resource type="PackedScene" uid="uid://b08ef3prduffn" path="res://wall.tscn" id="4_qc2vi"]
 
 [sub_resource type="GDScript" id="GDScript_dpqlk"]
 
@@ -12,7 +13,7 @@
 albedo_color = Color(0.5328, 0.72, 0.69192, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k4ymp"]
-size = Vector3(1.96869, 0.495605, 1.832)
+size = Vector3(1.99779, 0.495605, 2.02447)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n07uj"]
 sky_top_color = Color(0.580457, 0.309092, 0.708388, 1)
@@ -38,7 +39,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_hmmc5")
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, -0.25, -0.103)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00524157, -0.25, -0.00676636)
 shape = SubResource("BoxShape3D_k4ymp")
 
 [node name="Player" parent="." instance=ExtResource("1_bmrpy")]
@@ -53,3 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 0.722412, 0.691463, 0, -0.691463, 0.722412, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bapma")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("4_qc2vi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51716, 10.0424, 0.50688, 0)
