@@ -1,0 +1,18 @@
+# Godot-specific
+.import/
+export/
+.godot/
+.godot_imported/
+.mono/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Editor settings (optional, may want to include in a team project)
+editor_settings-*.tres

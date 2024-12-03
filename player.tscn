@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvlmuf5aibcvr"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_u4gj6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpsm4"]
+albedo_color = Color(0.0313726, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_slwph"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rrvwp"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_u4gj6")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
+material_overlay = SubResource("StandardMaterial3D_tpsm4")
+mesh = SubResource("BoxMesh_slwph")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
+shape = SubResource("ConcavePolygonShape3D_rrvwp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.860466, 0.509507, 0, -0.509507, 0.860466, 0, 1.34644, 2.61404)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00221653, 0.999998, 0, -0.999998, 0.00221653, 0.00655484, 1.17112, 0.0988119)
+spot_range = 1.60174
